@@ -1,0 +1,90 @@
+$bg-Active-1: rgb(255, 255, 255);
+$bg-Active-2: rgb(59, 237, 216);
+
+
+body{
+  background-color:   #f0f0f0;
+}
+.box_container{
+  border-radius: 20px 20px 160px 20px;
+  font-weight: bolder;
+}
+.result_text{
+  font-size: 5rem;
+}
+
+.c-cerulean-frost{
+  color: #161616;
+}
+.c-lavender-indigo{
+  color: #854bff;
+}
+
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_calc{
+  position: absolute;
+  top: -100%;
+  right: 0;
+  font-size: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #864dfe;
+}
+
+.btnNotActive{
+  color: white;
+  animation: btnNotActiveAnimation 0.5s;
+}
+
+@keyframes btnNotActiveAnimation {
+  33% {transform: rotate(25deg);}
+  66% {transform: rotate(-25deg);}
+  100% {transform: rotate(0);}
+}
+.btnActive{
+  color: $bg-Active-1;
+  animation: btnActiveAnimation 1.5s;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes btnActiveAnimation {
+  10% {transform: rotate(0);}
+  20% {transform: rotate(-25deg);}
+  30% {transform: rotate(25deg);}
+  40% {transform: rotate(-25deg);}
+  50% {transform: rotate(25deg);}
+  60% {transform: rotate(-25deg);}
+  70% {transform: rotate(25deg);}
+  80% {transform: rotate(-25deg);}
+  90% {transform: rotate(+25deg);}
+  100% {transform: rotate(0);}
+}
+
+
+  @media only screen and (max-width: 800px) {
+    .box_container{
+      margin: 0 10px 0 10px;
+    }
+    .result_text{
+      font-size: 2rem;
+    }
+    .btn_calc{
+      position: absolute;
+      top: 50%;  /* position the top  edge of the element at the middle of the parent */
+      left: 50%; /* position the left edge of the element at the middle of the parent */
+      transform: translate(-50%, -50%);
+    }
+  }
