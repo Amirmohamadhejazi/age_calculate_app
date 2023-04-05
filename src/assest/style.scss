@@ -1,8 +1,23 @@
 $bg-Active-1: rgb(255, 255, 255);
 $bg-Active-2: rgb(59, 237, 216);
 
+@font-face {
+  font-family: RegularFont;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: BoldFont;
+  src: url(./fonts/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: ExtraBoldFont;
+  src: url(./fonts/Poppins-ExtraBold.ttf);
+}
 
 body{
+  font-family: RegularFont;
+  //font-family: BoldFont;
+  //font-family: ExtraBoldFont;
   background-color:   #f0f0f0;
 }
 .box_container{
@@ -11,6 +26,7 @@ body{
 }
 .result_text{
   font-size: 5rem;
+  font-family: ExtraBoldFont;
 }
 
 .c-cerulean-frost{
@@ -37,6 +53,11 @@ body{
   justify-content: center;
   align-items: center;
   background-color: #864dfe;
+  transition: 0.5s;
+}
+.btn_calc:hover{
+  background-color: #151515;
+  transition: 0.5s;
 }
 
 .btnNotActive{
@@ -47,13 +68,19 @@ body{
 @keyframes btnNotActiveAnimation {
   33% {transform: rotate(25deg);}
   66% {transform: rotate(-25deg);}
-  100% {transform: rotate(0);}
+  100% {transform: rotate(0) ;}
 }
 .btnActive{
   color: $bg-Active-1;
   animation: btnActiveAnimation 1.5s;
 }
 
+input{
+  color: black;
+  font-family: ExtraBoldFont;
+  font-weight: bolder;
+  font-size: 25px;
+}
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -61,16 +88,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @keyframes btnActiveAnimation {
-  10% {transform: rotate(0);}
-  20% {transform: rotate(-25deg);}
-  30% {transform: rotate(25deg);}
-  40% {transform: rotate(-25deg);}
-  50% {transform: rotate(25deg);}
-  60% {transform: rotate(-25deg);}
-  70% {transform: rotate(25deg);}
-  80% {transform: rotate(-25deg);}
-  90% {transform: rotate(+25deg);}
-  100% {transform: rotate(0);}
+  0% {transform: translate(0px, -27px);}
+  50% {transform: translate(0px, 27px);}
 }
 
 
@@ -83,7 +102,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .btn_calc{
       position: absolute;
-      top: 50%;  /* position the top  edge of the element at the middle of the parent */
+      top: 0;  /* position the top  edge of the element at the middle of the parent */
       left: 50%; /* position the left edge of the element at the middle of the parent */
       transform: translate(-50%, -50%);
     }
