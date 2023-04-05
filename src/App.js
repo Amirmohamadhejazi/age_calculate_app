@@ -8,8 +8,7 @@ import './assest/style.scss';
 
 function App() {
     const [icon , SetIcon ] = useState(<img src={Arrow_img} className="btnNotActive" alt=""/>)
-    const [customError , SetCustomError ] = useState({m:false , d:false})
-    const [dataForm , SetDataForm] = useState([
+     const [dataForm , SetDataForm] = useState([
         {
             name :"year",
             value:"",
@@ -37,20 +36,15 @@ function App() {
         let today = new Date();
         if (parseInt(data.year) ===  today.getFullYear()  ){
             if (  parseInt(data.month) > today.getMonth()+1){
-                SetCustomError({...customError , m:true})
-                console.log("errore from month invalid")
+                console.log("error from month invalid")
             }else if( parseInt(data.day) > today.getDate()){
-                console.log("errore from day invalid")
-                SetCustomError({...customError , d:true})
+                console.log("error from day invalid")
             }else {
-                SetCustomError({m:false , d:false})
                 calculateAge(`${data.year}/${data.month}/${data.day}`)
             }
         }else {
-            SetCustomError({m:false , d:false})
             calculateAge(`${data.year}/${data.month}/${data.day}`)
         }
-
     }
     function calculateAge(date) {
         let today = new Date();
@@ -102,12 +96,12 @@ function App() {
                               <div className="w-[32%] lg:w-[25%] ">
                                   <label className={`block ${errors.day ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="day">DAY </label>
                                   <input  className="custom-Input appearance-none " type="number" placeholder="DD" id="day" {...register("day", { required: true , max:31, min:1 })} />
-                                  <label className="block text-red-700 font-bold mt-2" htmlFor="day">{(errors.day || customError.d === true) && " Must be a valid day"} </label>
+                                  <label className="block text-red-700 font-bold mt-2" htmlFor="day">{errors.day && " Must be a valid day"} </label>
                               </div>
                               <div className="w-[32%] lg:w-[25%] ">
                                   <label className={`block ${errors.month ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="month">MONTH </label>
                                   <input className="custom-Input  appearance-none" type="number" placeholder="MM" id="month" {...register("month", { required: true , max:12 , min:1})} />
-                                  <label className="block text-red-700 font-bold mt-2" htmlFor="month">{(errors.month || customError.m === true)  && " Must be a valid month"} </label>
+                                  <label className="block text-red-700 font-bold mt-2" htmlFor="month">{errors.month && " Must be a valid month"} </label>
                               </div>
                               <div className="w-[32%] lg:w-[25%] ">
                                   <label className={`block ${errors.year ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="year">YEAR </label>
