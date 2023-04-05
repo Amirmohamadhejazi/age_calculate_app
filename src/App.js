@@ -126,6 +126,7 @@ function App() {
                           {
                               dataForm.map((item)=><span className="c-cerulean-frost" key={item.id}><span className="c-lavender-indigo"> {item.value? item.value : "0"} </span>{item.name}</span>)
                           }
+                          
                       </div>
                   </div>
           </div>
