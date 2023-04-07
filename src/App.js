@@ -8,6 +8,7 @@ import './assest/style.scss';
 
 function App() {
     const [icon , SetIcon ] = useState(<img src={Arrow_img} className="btnNotActive" alt=""/>)
+    const [customError , SetCustomError] = useState({y : false ,  m : false , d : false})
      const [dataForm , SetDataForm] = useState([
         {
             name :"year",
@@ -32,18 +33,26 @@ function App() {
     },[dataForm])
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
+
     const onSubmit = (data) => {
+
+        //
         let today = new Date();
-        if (parseInt(data.year) ===  today.getFullYear()  ){
-            if (  parseInt(data.month) > today.getMonth()+1){
-                console.log("error from month invalid")
-            }else if( parseInt(data.day) > today.getDate()){
-                console.log("error from day invalid")
-            }else {
-                calculateAge(`${data.year}/${data.month}/${data.day}`)
-            }
+        let old = new Date(`${data.year}/${data.month}/${data.day}`);
+
+        let num_today = today.getTime()
+        let num_old = old.getTime()
+
+
+
+
+
+        if(num_old > num_today) {
+            console.log("please check date fill form!")
+            SetCustomError({...customError,  m : true , d : true})
         }else {
             calculateAge(`${data.year}/${data.month}/${data.day}`)
+            SetCustomError({y : false ,  m : false , d : false})
         }
     }
     function calculateAge(date) {
@@ -94,19 +103,19 @@ function App() {
                       <form onSubmit={handleSubmit(onSubmit)} className="">
                           <div className="w-full flex justify-between lg:justify-start gap-5   " >
                               <div className="w-[32%] lg:w-[25%] ">
-                                  <label className={`block ${errors.day ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="day">DAY </label>
+                                  <label className={`block ${errors.day || customError.d ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="day">DAY </label>
                                   <input  className="custom-Input appearance-none " type="number" placeholder="DD" id="day" {...register("day", { required: true , max:31, min:1 })} />
-                                  <label className="block text-red-700 font-bold mt-2" htmlFor="day">{errors.day && " Must be a valid day"} </label>
+                                  <label className="block text-red-700 font-bold mt-2" htmlFor="day">{(errors.day  || customError.d) && " Must be a valid day"} </label>
                               </div>
                               <div className="w-[32%] lg:w-[25%] ">
-                                  <label className={`block ${errors.month ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="month">MONTH </label>
+                                  <label className={`block ${errors.month || customError.m ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="month">MONTH </label>
                                   <input className="custom-Input  appearance-none" type="number" placeholder="MM" id="month" {...register("month", { required: true , max:12 , min:1})} />
-                                  <label className="block text-red-700 font-bold mt-2" htmlFor="month">{errors.month && " Must be a valid month"} </label>
+                                  <label className="block text-red-700 font-bold mt-2" htmlFor="month">{(errors.month || customError.m) && " Must be a valid month"} </label>
                               </div>
                               <div className="w-[32%] lg:w-[25%] ">
-                                  <label className={`block ${errors.year ? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="year">YEAR </label>
-                                  <input  className="custom-Input appearance-none " type="number" placeholder="YYYY" id="year" {...register("year", { required: true , max:2023 , min:1000 , })} />
-                                  <label className="block text-red-700 font-bold mt-2" htmlFor="year">{errors.year && " Must be a valid day"} </label>
+                                  <label className={`block ${errors.year || customError.y? 'text-red-700' : 'text-gray-700'} font-bold mb-2`}  htmlFor="year">YEAR </label>
+                                  <input  className="custom-Input appearance-none " type="number" placeholder="YYYY" id="year" {...register("year", { required: true , max : new Date().getFullYear() , min:1000 , })} />
+                                  <label className="block text-red-700 font-bold mt-2" htmlFor="year">{(errors.year || customError.y) && " Must be a valid year"} </label>
                               </div>
                           </div>
 
