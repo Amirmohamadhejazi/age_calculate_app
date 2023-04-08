@@ -98,8 +98,8 @@ function App() {
 
     return (
       <div className="container">
-          <div className="w-full h-screen   flex-center">
-                  <div className="box_container bg-white p-5 lg:p-24    ">
+          <div className="w-full min-h-screen  flex-center">
+                  <div className="box_container    bg-white p-5 lg:p-12    ">
                       <form onSubmit={handleSubmit(onSubmit)} className="">
                           <div className="w-full flex justify-between lg:justify-start gap-5   " >
                               <div className="w-[32%] lg:w-[25%] ">
