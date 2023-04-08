@@ -99,7 +99,7 @@ function App() {
     return (
       <div className="container">
           <div className="w-full min-h-screen  flex-center">
-                  <div className="box_container    bg-white p-5 lg:p-12    ">
+                  <div className="box_container  bg-white p-5 lg:p-8    ">
                       <form onSubmit={handleSubmit(onSubmit)} className="">
                           <div className="w-full flex justify-between lg:justify-start gap-5   " >
                               <div className="w-[32%] lg:w-[25%] ">
@@ -119,7 +119,7 @@ function App() {
                               </div>
                           </div>
 
-                          <div className="h-[50px] my-[5rem] relative">
+                          <div className="h-[50px] mt-60 relative">
                               <hr/>
                               <button type="submit" className="btn_calc   w-[80px] h-[80px]  lg:w-[100px] lg:h-[100px] ">{icon}</button>
                           </div>
