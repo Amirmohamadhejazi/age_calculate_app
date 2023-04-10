@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/age_calculate_app/static/css/main.a88ed1ba.css",
-    "main.js": "/age_calculate_app/static/js/main.c9296c47.js",
+    "main.css": "/age_calculate_app/static/css/main.7ace4ada.css",
+    "main.js": "/age_calculate_app/static/js/main.dbd70f32.js",
     "static/media/Poppins-Regular.ttf": "/age_calculate_app/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Bold.ttf": "/age_calculate_app/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
     "static/media/Poppins-ExtraBold.ttf": "/age_calculate_app/static/media/Poppins-ExtraBold.01849ee091e1762a5dd5.ttf",
     "index.html": "/age_calculate_app/index.html",
     "static/media/icon-arrow.svg": "/age_calculate_app/static/media/icon-arrow.76e952b1b427b84b83bd01f2f4822499.svg",
-    "main.a88ed1ba.css.map": "/age_calculate_app/static/css/main.a88ed1ba.css.map",
-    "main.c9296c47.js.map": "/age_calculate_app/static/js/main.c9296c47.js.map"
+    "main.7ace4ada.css.map": "/age_calculate_app/static/css/main.7ace4ada.css.map",
+    "main.dbd70f32.js.map": "/age_calculate_app/static/js/main.dbd70f32.js.map"
   },
   "entrypoints": [
-    "static/css/main.a88ed1ba.css",
-    "static/js/main.c9296c47.js"
+    "static/css/main.7ace4ada.css",
+    "static/js/main.dbd70f32.js"
   ]
 }
